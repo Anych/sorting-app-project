@@ -1,19 +1,19 @@
 package kz.anuar;
 
 import java.util.Arrays;
+
+/**
+ * Sorting class which sorts a string of integers in ascending order
+ */
 public class SortingApp {
 
-    String[] strArray;
+    String[] str;
     int length;
     int[] intArray;
     StringBuilder output = new StringBuilder();;
 
-    public static void main(String[] args) {
-        SortingApp sortingApp = new SortingApp();
-        System.out.println(sortingApp.sort(args));
-    }
-    public String sort(String[] args) {
-            strArray = args;
+    public String sort(String args) {
+            str = args.split(" ");
             checkLength();
 
             intArray = new int[length];
@@ -24,7 +24,7 @@ public class SortingApp {
     }
 
     public void checkLength() {
-        length = strArray.length;
+        length = str.length;
 
         if (length > 10 || length == 0) {
             throw new IllegalArgumentException("A length of array must be between 1 to 10.");
@@ -34,7 +34,7 @@ public class SortingApp {
     public void checkString() {
         try {
             for (int i = 0; i < length; i++) {
-                intArray[i] = Integer.parseInt(strArray[i]);
+                intArray[i] = Integer.parseInt(str[i]);
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Arguments must be an integer.");
